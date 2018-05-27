@@ -31,7 +31,11 @@ Prism.languages.eno = {
     alias: 'name'
   },
   'name': {
-    pattern: /(^|\n)[^\S\n]*(?!-|\\#>)[^:=<\n]+/,
+    pattern: /(^|\n)[^\S\n]*[^:=<\n\s>|\-\\#][^:=<\n]*/,
+    lookbehind: true
+  },
+  'append': {
+    pattern: /(^|\n)[^\S\n]*[|\\]/,
     lookbehind: true
   },
   'template': {
