@@ -6,8 +6,8 @@ Prism.languages.eno = {
   'block': {
     pattern: /(^|\n)[^\S\n]*(-{2,})[^\S\n]*(?!-)(\S[^\n]*)\n[\s\S]*?\n[^\S\n]*\2[^\S\n]*\3[^\S\n]*(?:\n|$)/,
     inside: {
-      'name': {
-        pattern: /((?:^|\n)[^\S\n]*(-{2,})[^\S\n]*)(?!-)(\S[^\n]*)\n/,
+      'block-content': {
+        pattern: /((-{2,}(?!-))[^\S\n]*(\S.*?)[^\S\n]*\n)[\S\s]*(?=[^\S\n]*\2[^\S\n]*\3[^\S\n]*)/,
         lookbehind: true
       },
       'punctuation': /(?:^|\n)[^\S\n]*-{2,}/

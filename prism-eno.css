@@ -21,3 +21,11 @@
 .language-eno .token.template {
 	color: #b2d218;
 }
+
+.language-eno .token.block {
+	color: #ff5370;
+}
+
+.language-eno .token.block-content  {
+	color: black;
+}
