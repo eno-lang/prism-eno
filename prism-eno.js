@@ -32,12 +32,12 @@ Prism.languages.eno = {
   // -- ...
   _multiline_field: {
     alias: '_value',
-    pattern: /(^|\n)[^\S\n]*(-{2,})[^\S\n]*(?!-)(\S[^\n]*)\n[\s\S]*?\n[^\S\n]*\2[^\S\n]*\3[^\S\n]*(?:\n|$)/,
+    pattern: /(^|\n)[^\S\n]*(-{2,})(?!-)[^\S\n]*(\S[^\n]*?)[^\S\n]*\n(?:[\s\S]*?\n)?[^\S\n]*\2(?!-)[^\S\n]*\3[^\S\n]*(?:\n|$)/,
     inside: {
       _begin: {
-        pattern: /^\s*-{2,}(?!-)[^\n]*/,
+        pattern: /^[^\S\n]*-{2,}(?!-)[^\n]+/,
         inside: {
-          'operator': /^[^\S\n]*(-{2,})/,
+          'operator': /^[^\S\n]*(-{2,})(?=[^\S\n]*\S)/,
           'tag name': /.*/
         }
       },
