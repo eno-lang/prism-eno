@@ -89,8 +89,8 @@ Prism.languages.eno = {
           'attr-name fieldset-entry-key':  /.*/
         }
       },
-        pattern: /^(`+)(?!`)(?:(?!\1).)*\1(?=\s*[:<])/,
       _escaped_key: {
+        pattern: /^(`+)(?!`)(?:(?!\1).)*\1(?=\s*[:<]|\s*$)/,
         inside: {
           'operator': /(^`+|`+$)/,
           'tag name': /.*/
@@ -113,8 +113,8 @@ Prism.languages.eno = {
     pattern: /(^\s*)[^\s:=><|\-\\#`][^\n]*$/m,
     lookbehind: true,
     inside: {
-      'tag name': /^[^\s:=><|\-\\#`][^\n:=<]*(?=[:<])/,
       'attr-name fieldset-entry-key ': /^[^\s:=><|\-\\#`][^\n:=<]*(?=[=])/,
+      'tag name': /^[^\s:=><|\-\\#`][^\n:=<]*(?=[:<]|$)/,
       rest: elementRest
     }
   },
