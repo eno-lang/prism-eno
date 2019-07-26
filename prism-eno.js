@@ -1,5 +1,5 @@
 const elementRest = {
-  _empty_or_field: {
+  _field: {
     pattern: /:[^\n]*/,
     inside: {
       'operator': /^:/,
@@ -30,7 +30,7 @@ Prism.languages.eno = {
     lookbehind: true
   },
   // -- ...
-  _block: {
+  _multiline_field: {
     alias: '_value',
     pattern: /(^|\n)[^\S\n]*(-{2,})[^\S\n]*(?!-)(\S[^\n]*)\n[\s\S]*?\n[^\S\n]*\2[^\S\n]*\3[^\S\n]*(?:\n|$)/,
     inside: {
@@ -57,7 +57,7 @@ Prism.languages.eno = {
     lookbehind: true,
     inside: {
       'keyword section-operator': /^#{1,}(?!#)/,
-      _escaped_name: {
+      _escaped_key: {
         pattern: /(`+)(?!`)(?:(?!\1).)*\1(?=\s*[<$])/,
         inside: {
           'operator': /(^`+|`+$)/,
@@ -79,15 +79,15 @@ Prism.languages.eno = {
     pattern: /(^\s*)`[^\n]*$/m,
     lookbehind: true,
     inside: {
-      _escaped_fieldset_entry_name: {
+      _escaped_fieldset_entry_key: {
         pattern: /^(`+)(?!`)(?:(?!\1).)*\1(?=\s*[=])/,
         inside: {
           'operator': /(^`+|`+$)/,
-          'attr-name fieldset-entry-name':  /.*/
+          'attr-name fieldset-entry-key':  /.*/
         }
       },
-      _escaped_name: {
         pattern: /^(`+)(?!`)(?:(?!\1).)*\1(?=\s*[:<])/,
+      _escaped_key: {
         inside: {
           'operator': /(^`+|`+$)/,
           'tag name': /.*/
@@ -110,8 +110,8 @@ Prism.languages.eno = {
     pattern: /(^\s*)[^\s:=><|\-\\#`][^\n]*$/m,
     lookbehind: true,
     inside: {
-      'attr-name fieldset-entry-name ': /^[^\s:=><|\-\\#`][^\n:=<]*(?=[=])/,
       'tag name': /^[^\s:=><|\-\\#`][^\n:=<]*(?=[:<])/,
+      'attr-name fieldset-entry-key ': /^[^\s:=><|\-\\#`][^\n:=<]*(?=[=])/,
       rest: elementRest
     }
   },
