@@ -45,7 +45,7 @@ Prism.languages.eno = {
         }
       },
       _end: {
-        pattern: /\n\s*-{2,}(?!-)[^\n]*\n?$/,
+        pattern: /\n[^\S\n]*-{2,}(?!-)[^\n]*\n?$/,
         inside: {
           'operator': /^\n[^\S\n]*(-{2,})/,
           'tag name': /.*/
