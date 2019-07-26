@@ -14,10 +14,13 @@ const elementRest = {
     }
   },
   _template: {
-    pattern: /(<(?!<)|<<)[^\n]*/,
+    pattern: /(<)[^\n]*/,
     inside: {
-      'operator': /^(<(?!<)|<<)/,
-      'class-name template': /.*/
+      'class-name template': {
+        pattern: /^(<).*/,
+        lookbehind: true
+      },
+      'operator': /^(<)/,
     }
   },
   'invalid': /\S+/
